@@ -10,7 +10,7 @@ export default function Footer(props: Props) {
       centerContent
     >
       <HStack p="10px">
-        <Text>© Naoto Saito</Text>
+        <Text color="gray.400">© Naoto Saito</Text>
       </HStack>
     </Container>
   );

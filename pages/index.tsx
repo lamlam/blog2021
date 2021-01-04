@@ -8,7 +8,7 @@ export default function Home() {
     <>
       <Nav />
       <Title title="Hello World こんにちは" />
-      <Container maxWidth="6xl" p="0px 40px">
+      <Container maxWidth="6xl" p="40px">
         <Text>本文</Text>
       </Container>
       <Footer />
