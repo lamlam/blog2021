@@ -1,6 +1,7 @@
 import { Text, Container } from "@chakra-ui/react";
 import Nav from "../components/Nav";
 import Title from "../components/Title";
+import Footer from "../components/Footer";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <Container maxWidth="6xl" p="0px 40px">
         <Text>本文</Text>
       </Container>
+      <Footer />
     </>
   );
 }
