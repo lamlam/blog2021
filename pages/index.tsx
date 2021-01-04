@@ -1,15 +1,15 @@
-import Head from "next/head";
-import { Box, Heading } from "@chakra-ui/react";
+import { Text, Container } from "@chakra-ui/react";
+import Nav from "../components/Nav";
+import Title from "../components/Title";
 
 export default function Home() {
   return (
-    <Box p={4}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-      </Head>
-
-      <Heading>Hello World</Heading>
-    </Box>
+    <>
+      <Nav />
+      <Title title="Hello World こんにちは" />
+      <Container maxWidth="6xl" p="0px 40px">
+        <Text>本文</Text>
+      </Container>
+    </>
   );
 }
