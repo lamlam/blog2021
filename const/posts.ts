@@ -12,4 +12,10 @@ export const posts: { [key: string]: Post } = {
     id: "blog-nextjs-chakraui",
     date: "2021-01-05",
   },
+  test: {
+    title: "tests",
+    summary: "yattaze test is test is test is jjjjjjjjl where",
+    id: "blogii",
+    date: "2021-01-06",
+  },
 };
