@@ -10,7 +10,7 @@ export default function Header(props: Props) {
         <HStack p="10px">
           <Link href="/">
             <a>
-              <Image src="icon.svg" alt="icon" height="32px" />
+              <Image src="/icon.svg" alt="icon" height="32px" />
             </a>
           </Link>
         </HStack>
