@@ -1,9 +1,10 @@
 import Head from "next/head";
-import { Heading, HStack, Container } from "@chakra-ui/react";
+import { Heading, Text, Container } from "@chakra-ui/react";
 import maxWidth from "../const/maxWidth";
 
 type Props = {
   title: string;
+  date?: Date;
 };
 
 export default function Title(props: Props) {
@@ -14,6 +15,11 @@ export default function Title(props: Props) {
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
       </Head>
       <Heading>{props.title}</Heading>
+      {props.date ? (
+        <Text color="gray.500">
+          {props.date.toISOString().split("T").shift()}
+        </Text>
+      ) : null}
     </Container>
   );
 }
