@@ -1,22 +1,17 @@
-import { ErrorResult, SuccessResult } from "open-graph-scraper";
+import { SuccessResult } from "open-graph-scraper";
 import { VStack, Image, Box, Text, Link } from "@chakra-ui/react";
 import NextLink from "next/link";
+import { URLMetaData, MetaData } from "../interface/URLMetaData";
+type Props = URLMetaData;
 
-export type OGData = Omit<SuccessResult, "response"> | ErrorResult;
-
-type Props = {
-  ogData: OGData;
-  url: string;
-};
-
-export default function LinkCard({ ogData, url }: Props) {
+export default function LinkCard({ metaData, url }: Props) {
   let og: SuccessResult["result"];
-  if (ogData.error === false) {
-    og = ogData.result;
+  if (metaData.error === false) {
+    og = metaData.result;
   }
   return (
     <Box maxWidth="md">
-      {ogData.error ? (
+      {metaData.error ? (
         <NextLink href={url}>
           <Link target="_blank">url</Link>
         </NextLink>

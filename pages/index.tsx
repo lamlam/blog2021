@@ -3,13 +3,13 @@ import Nav from "../components/Nav";
 import ArticleHeader from "../components/ArticleHeader";
 import Footer from "../components/Footer";
 import maxWidth from "../const/maxWidth";
-import { posts } from "../const/posts";
+import { Posts } from "../model/Posts";
 import Link from "next/link";
 
-function PostList(props: { posts: typeof posts }) {
+function PostList({ posts }: { posts: typeof Posts }) {
   return (
     <List spacing={3}>
-      {Object.keys(props.posts).map((key) => {
+      {Object.keys(posts).map((key) => {
         const post = posts[key];
         return (
           <ListItem key={post.id}>
@@ -32,7 +32,7 @@ export default function Home() {
       <Nav />
       <ArticleHeader title="Hello World こんにちは" />
       <Container maxWidth={maxWidth} p="40px" minHeight="xl">
-        <PostList posts={posts} />
+        <PostList posts={Posts} />
       </Container>
       <Footer />
     </>
