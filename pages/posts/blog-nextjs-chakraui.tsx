@@ -1,8 +1,5 @@
-import { Text, Container } from "@chakra-ui/react";
-import Nav from "../../components/Nav";
-import Footer from "../../components/Footer";
+import { Text } from "@chakra-ui/react";
 import ArticleHeader from "../../components/ArticleHeader";
-import { maxWidth } from "../../const/layout";
 import openGraphScraper from "open-graph-scraper";
 import { GetStaticProps } from "next";
 import LinkCard from "../../components/LinkCard";
@@ -24,15 +21,11 @@ const linkURL = "https://www.asahi.com/articles/ASP1K4W0LP1KUCVL005.html";
 export default function Post({ urlDataList }: Props) {
   return (
     <>
-      <Nav />
       <ArticleHeader title={post.title} date={new Date(post.date)} />
-      <Container maxWidth={maxWidth} p="40px" minHeight="xl">
-        <Text>
-          本文ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
-        </Text>
-        <LinkCard metaData={urlDataList[linkURL].metaData} url={linkURL} />
-      </Container>
-      <Footer />
+      <Text>
+        本文ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
+      </Text>
+      <LinkCard metaData={urlDataList[linkURL].metaData} url={linkURL} />
     </>
   );
 }
