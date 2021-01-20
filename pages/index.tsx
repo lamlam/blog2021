@@ -2,7 +2,7 @@ import { Container, Heading, List, ListItem, Text } from "@chakra-ui/react";
 import Nav from "../components/Nav";
 import ArticleHeader from "../components/ArticleHeader";
 import Footer from "../components/Footer";
-import maxWidth from "../const/maxWidth";
+import { maxWidth } from "../const/layout";
 import { Posts } from "../model/Posts";
 import Link from "next/link";
 

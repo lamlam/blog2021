@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { Heading, Text, Container } from "@chakra-ui/react";
-import maxWidth from "../const/maxWidth";
+import { maxWidth } from "../const/layout";
 
 type Props = {
   title: string;

@@ -1,6 +1,6 @@
 import { HStack, Box, Image, Container } from "@chakra-ui/react";
 import Link from "next/link";
-import maxWidth from "../const/maxWidth";
+import { maxWidth } from "../const/layout";
 type Props = {};
 
 export default function Header(props: Props) {

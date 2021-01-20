@@ -2,7 +2,7 @@ import { Text, Container } from "@chakra-ui/react";
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
 import ArticleHeader from "../../components/ArticleHeader";
-import maxWidth from "../../const/maxWidth";
+import { maxWidth } from "../../const/layout";
 import openGraphScraper from "open-graph-scraper";
 import { GetStaticProps } from "next";
 import LinkCard from "../../components/LinkCard";
