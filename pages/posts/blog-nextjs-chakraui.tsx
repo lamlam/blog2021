@@ -4,12 +4,14 @@ import openGraphScraper from "open-graph-scraper";
 import { GetStaticProps } from "next";
 import LinkCard from "../../components/LinkCard";
 import { URLMetaData } from "../../interface/URLMetaData";
+import { Post } from "../../interface/Post";
 
-export const post = {
+export const post: Post = {
   title: "年末年始に Next.js + Chakra UI でブログ作った",
   summary: "年末年始に Next.js + ChakraUI でブログ作った",
   id: "blog-nextjs-chakraui",
-  date: "2021-01-05",
+  createdDate: "2021-01-05",
+  updatedDate: "2021-01-21",
 };
 
 type Props = {
@@ -18,10 +20,14 @@ type Props = {
 //const linkURL = "https://github.com/trending";
 const linkURL = "https://www.asahi.com/articles/ASP1K4W0LP1KUCVL005.html";
 
-export default function Post({ urlDataList }: Props) {
+export default function PostPage({ urlDataList }: Props) {
   return (
     <>
-      <ArticleHeader title={post.title} date={new Date(post.date)} />
+      <ArticleHeader
+        title={post.title}
+        createdDate={new Date(post.createdDate)}
+        updatedDate={new Date(post.updatedDate)}
+      />
       <Text>
         本文ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
       </Text>

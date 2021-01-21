@@ -2,5 +2,6 @@ export type Post = {
   title: string;
   summary: string;
   id: string;
-  date?: string;
+  updatedDate?: string;
+  createdDate?: string;
 };
