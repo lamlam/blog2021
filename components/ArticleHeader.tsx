@@ -11,7 +11,7 @@ type Props = {
 export default function Title({ title, createdDate, updatedDate }: Props) {
   const update: Date | undefined = updatedDate || createdDate;
   return (
-    <Container centerContent p="40px 0" maxWidth="100%">
+    <Container centerContent p="40px" maxWidth="100%">
       <Head>
         <title>{title}</title>
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
