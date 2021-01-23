@@ -18,7 +18,8 @@ type Props = {
   urlDataList: { [key: string]: URLMetaData };
 };
 //const linkURL = "https://github.com/trending";
-const linkURL = "https://www.asahi.com/articles/ASP1K4W0LP1KUCVL005.html";
+//const linkURL = "https://www.asahi.com/articles/ASP1K4W0LP1KUCVL005.html";
+const linkURL = "https://github.com/puppeteer/puppeteer/pull/6745";
 
 export default function PostPage({ urlDataList }: Props) {
   return (
