@@ -5,6 +5,9 @@ import { GetStaticProps } from "next";
 import LinkCard from "../../components/LinkCard";
 import { URLMetaData } from "../../interface/URLMetaData";
 import { Post } from "../../interface/Post";
+import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import typescript from "react-syntax-highlighter/dist/cjs/languages/prism/typescript";
+import prism from "react-syntax-highlighter/dist/cjs/styles/prism/a11y-dark";
 
 export const post: Post = {
   title: "Next.js + Chakra UI でTwitter CardのようなOGP表示を作る",
@@ -16,6 +19,7 @@ export const post: Post = {
 type Props = {};
 
 export default function Page({}: Props) {
+  SyntaxHighlighter.registerLanguage("typescript", typescript);
   return (
     <>
       <ArticleHeader
@@ -25,6 +29,11 @@ export default function Page({}: Props) {
       <Heading size="lg" paddingBottom="10px">
         完成形
       </Heading>
+      <SyntaxHighlighter language="typescript" style={prism}>{`
+function foo(x) => {
+  const b = 1;
+  console.log(b)
+}`}</SyntaxHighlighter>
 
       <Heading size="lg" paddingBottom="10px">
         セットアップ
