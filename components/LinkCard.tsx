@@ -12,39 +12,37 @@ export default function LinkCard({ metaData, url }: Props) {
   return (
     <Box maxWidth="md">
       {metaData.error ? (
-        <NextLink href={url}>
-          <Link target="_blank">url</Link>
-        </NextLink>
+        <Link color="teal.500" href={url} isExternal>
+          {url}
+        </Link>
       ) : (
-        <NextLink href={og.ogUrl}>
-          <a target="_blank">
-            <VStack
-              borderRadius="xl"
-              border="1px"
+        <Link href={og.ogUrl} isExternal>
+          <VStack
+            borderRadius="xl"
+            border="1px"
+            borderColor="gray.400"
+            spacing={0}
+          >
+            <Image
+              src={og.ogImage.url}
+              alt={og.ogTitle}
+              width="100%"
+              maxHeight="2xs"
+              borderTopRadius="xl"
+              objectFit="cover"
+            />
+            <Box
+              borderBottomRadius="xl"
+              borderTop="1px"
               borderColor="gray.400"
-              spacing={0}
+              padding="3"
+              width="100%"
             >
-              <Image
-                src={og.ogImage.url}
-                alt={og.ogTitle}
-                width="100%"
-                maxHeight="2xs"
-                borderTopRadius="xl"
-                objectFit="cover"
-              />
-              <Box
-                borderBottomRadius="xl"
-                borderTop="1px"
-                borderColor="gray.400"
-                padding="3"
-                width="100%"
-              >
-                <Text>{og.ogTitle}</Text>
-                <Text color="gray.500">{og.ogUrl}</Text>
-              </Box>
-            </VStack>
-          </a>
-        </NextLink>
+              <Text>{og.ogTitle}</Text>
+              <Text color="gray.500">{og.ogUrl}</Text>
+            </Box>
+          </VStack>
+        </Link>
       )}
     </Box>
   );
