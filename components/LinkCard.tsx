@@ -12,7 +12,7 @@ export default function OGP({ url, title, image }: OGPData) {
   }
 
   return (
-    <Box maxWidth="md">
+    <Box maxWidth={["100%", "md"]}>
       <Link href={url} isExternal _hover={{ textDecoration: "none" }}>
         <VStack
           borderRadius="xl"
