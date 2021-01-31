@@ -38,6 +38,7 @@ export default function Page({
       <ArticleHeader
         title={post.title}
         createdDate={new Date(post.createdDate)}
+        updatedDate={new Date(post.updatedDate)}
       />
       <Heading size="lg" paddingBottom="10px">
         完成形
