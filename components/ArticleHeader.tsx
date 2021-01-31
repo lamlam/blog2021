@@ -19,7 +19,7 @@ export default function Title({ title, createdDate, updatedDate, url }: Props) {
 
         <meta name="twitter:card" content="summary" />
         <meta property="og:title" content={title} />
-        <meta property="og:image" content="/logo.png" />
+        <meta property="og:image" content="https://lamlam.dev/icon.png" />
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="400" />
         <meta property="og:image:height" content="256" />
