@@ -1,11 +1,13 @@
+import { GetStaticProps, InferGetStaticPropsType } from "next";
+
 import { Text, Heading, Container, Link } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
+
 import ArticleHeader from "../../components/ArticleHeader";
-import openGraphScraper from "open-graph-scraper";
-import { GetStaticProps } from "next";
 import LinkCard from "../../components/LinkCard";
-import { URLMetaData } from "../../interface/URLMetaData";
+import openGraphScraper from "open-graph-scraper";
 import { Post } from "../../interface/Post";
+
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import langTs from "react-syntax-highlighter/dist/cjs/languages/prism/typescript";
 import highlighterTheme from "react-syntax-highlighter/dist/cjs/styles/prism/a11y-dark";
@@ -18,15 +20,12 @@ export const post: Post = {
   createdDate: "2021-01-22",
 };
 
-type Props = {
-  urlDataList: { [key: string]: URLMetaData };
-};
-
-const linkURL = "https://github.com/puppeteer/puppeteer/pull/6745";
-
-export default function Page({ urlDataList }: Props) {
+export default function Page({
+  ogpData,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   SyntaxHighlighter.registerLanguage("typescript", langTs);
   SyntaxHighlighter.registerLanguage("bash", langBash);
+
   return (
     <>
       <ArticleHeader
@@ -42,7 +41,7 @@ export default function Page({ urlDataList }: Props) {
       </Text>
 
       <Container centerContent paddingBottom="10px">
-        <LinkCard metaData={urlDataList[linkURL].metaData} url={linkURL} />
+        <LinkCard {...ogpData} />
       </Container>
 
       <Heading size="lg" paddingTop="30px" paddingBottom="10px">
@@ -115,23 +114,33 @@ function MyApp({ Component, pageProps }) {
 
 export default MyApp;`}
       </SyntaxHighlighter>
+      <Text>
+        OGPでリンク先情報を取得するためにopen-graph-scraperを利用します。
+      </Text>
+      <SyntaxHighlighter language="bash" style={highlighterTheme}>
+        {`$ yarn add open-graph-scraper
+$ yarn add -D '@types/open-graph-scraper'`}
+      </SyntaxHighlighter>
     </>
   );
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const url = linkURL;
-  const ogData = await openGraphScraper({
+export const getStaticProps: GetStaticProps = async () => {
+  const url = "https://natgeo.nikkeibp.co.jp/atcl/news/21/012000029/";
+  const data = await openGraphScraper({
     url,
     onlyGetOpenGraphInfo: true,
   });
+  if (!data.result.success) {
+    return { props: { ogpData: { url } } };
+  }
+
   return {
     props: {
-      urlDataList: {
-        [url]: {
-          url,
-          metaData: { error: ogData.error, result: ogData.result },
-        },
+      ogpData: {
+        url,
+        title: data.result.ogTitle,
+        image: data.result.ogImage.url,
       },
     },
   };
