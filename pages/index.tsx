@@ -26,7 +26,7 @@ function PostList({ posts }: { posts: typeof Posts }) {
 export default function Home() {
   return (
     <>
-      <ArticleHeader title="lamlam's blog" />
+      <ArticleHeader title="lamlam's blog" url="https://lamlam.dev/" />
       <PostList posts={Posts} />
     </>
   );

@@ -39,6 +39,7 @@ export default function Page({
         title={post.title}
         createdDate={new Date(post.createdDate)}
         updatedDate={new Date(post.updatedDate)}
+        url={`https://lamlam.dev/posts/${post.id}`}
       />
       <Heading size="lg" paddingBottom="10px">
         完成形
