@@ -25,6 +25,7 @@ export default function Title({
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
 
         <meta name="twitter:card" content="summary" />
+        <meta property="og:type" content="website" />
         <meta property="og:title" content={title} />
         <meta property="og:image" content="https://lamlam.dev/icon.png" />
         <meta property="og:image:type" content="image/png" />
