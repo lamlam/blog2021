@@ -7,9 +7,16 @@ type Props = {
   createdDate?: Date;
   updatedDate?: Date;
   url?: string;
+  description?: string;
 };
 
-export default function Title({ title, createdDate, updatedDate, url }: Props) {
+export default function Title({
+  title,
+  createdDate,
+  updatedDate,
+  url,
+  description,
+}: Props) {
   const update: Date | undefined = updatedDate || createdDate;
   return (
     <Container centerContent p="40px" maxWidth="100%">
@@ -24,6 +31,9 @@ export default function Title({ title, createdDate, updatedDate, url }: Props) {
         <meta property="og:image:width" content="400" />
         <meta property="og:image:height" content="256" />
         <meta property="og:image:alt" content={title} />
+        {description && (
+          <meta property="og:description" content={description} />
+        )}
         {url && (
           <>
             <meta property="og:url" content={url} />

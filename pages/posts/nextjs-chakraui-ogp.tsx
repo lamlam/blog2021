@@ -21,7 +21,7 @@ import langBash from "react-syntax-highlighter/dist/cjs/languages/prism/bash";
 
 export const post: Post = {
   title: "Next.js + Chakra UI で Twitter Card のような OGP 表示を作る",
-  summary: "ブログ等でリンク先の情報をリッチに表示できるものです。",
+  summary: "リンク先のOGP情報の取得・表示方法をまとめます",
   id: "nextjs-chakraui-ogp",
   createdDate: "2021-01-22",
   updatedDate: "2021-01-31",
@@ -40,6 +40,7 @@ export default function Page({
         createdDate={new Date(post.createdDate)}
         updatedDate={new Date(post.updatedDate)}
         url={`https://lamlam.dev/posts/${post.id}`}
+        description={post.summary}
       />
       <Heading size="lg" paddingBottom="10px">
         完成形
